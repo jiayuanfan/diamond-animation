@@ -1,0 +1,91 @@
+.ripple {
+	width: 424px;
+	height: 424px;
+	position: relative;
+}
+
+.ripple .ddt1,
+.ripple .ddt2 {
+	position: absolute;
+	height: 424px;
+	width: 424px;
+	color: #fff;
+	border-radius: 100%;
+	transform: scale(0.35);
+	filter: blur(4px);
+	background: radial-gradient(transparent, rgba(255, 242, 66, 0.3));
+}
+
+.ripple .ddt1 {
+	z-index: 1;
+}
+.ripple .ddt2 {
+	z-index: 2;
+}
+
+.ripple .init-ddt1-animation {
+	animation: initSploosh 0.2s;
+}
+
+.ripple .ddt1-animation {
+	animation: sploosh1 2s linear forwards infinite;
+}
+
+.ripple .init-ddt2-animation {
+	animation: initSploosh 0.2s;
+}
+
+.ripple .ddt2-animation {
+	animation: sploosh2 2s linear forwards infinite;
+}
+
+@keyframes initSploosh {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(0.35);
+		opacity: 1;
+	}
+}
+
+@keyframes sploosh1 {
+	0% {
+		transform: scale(0.35);
+		opacity: 1;
+	}
+
+	50% {
+		transform: scale(1);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+
+@keyframes sploosh2 {
+	0% {
+		transform: scale(0.35);
+		opacity: 1;
+	}
+
+	20% {
+		transform: scale(0.35);
+		opacity: 1;
+	}
+
+	70% {
+		transform: scale(1);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 0;
+	}
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>钻石、金币特效</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./silk.css" />
+		<link rel="stylesheet" href="./diamond.css" />
+		<link rel="stylesheet" href="./star.css" />
+		<link rel="stylesheet" href="./ripple.css" />
+		<link rel="stylesheet" href="./inner-breath.css" />
+		<link rel="stylesheet" href="./spread.css" />
+		<style>
+			body {
+				padding: 24px;
+				background: rgba(0, 0, 0, 1);
+			}
+
+			h5 {
+				color: white;
+			}
+
+			section {
+				margin: 50px;
+				border: 1px solid white;
+			}
+
+			.whole {
+				width: 600px;
+				height: 600px;
+			}
+
+			.whole .content {
+				position: relative;
+				width: 600px;
+				height: 600px;
+			}
+
+			.whole .content .diamond {
+				position: absolute;
+				z-index: 5;
+				left: 50%;
+				top: 50%;
+				margin-left: -62px;
+				margin-top: -100px;
+			}
+
+			.whole .content .star {
+				position: absolute;
+				z-index: 4;
+				left: 50%;
+				top: 50%;
+				margin-left: -250px;
+				margin-top: -250px;
+			}
+
+			.whole .content .ripple {
+				position: absolute;
+				z-index: 2;
+				left: 50%;
+				top: 50%;
+				margin-left: -212px;
+				margin-top: -212px;
+			}
+
+			.whole .content .inner-breath {
+				position: absolute;
+				z-index: 3;
+				left: 50%;
+				top: 50%;
+				margin-left: -120px;
+				margin-top: -120px;
+			}
+
+			.whole .content .spread {
+				position: absolute;
+				z-index: 1;
+				left: 50%;
+				top: 50%;
+				margin-left: -200px;
+				margin-top: -200px;
+			}
+		</style>
+	</head>
+	<body>
+		<h5>丝带部分</h5>
+		<section class="silk silk-animation"></section>
+
+		<h5>钻石部分</h5>
+		<img class="diamond diamond-animation" src="./images/diamond.png" />
+
+		<h5>星星部分</h5>
+		<section class="star star-animation">
+			<img class="dot1" src="./images/star.png" />
+			<img class="dot2" src="./images/star.png" />
+			<img class="dot3" src="./images/star.png" />
+			<img class="dot4" src="./images/star.png" />
+			<img class="dot5" src="./images/star.png" />
+		</section>
+
+		<h5>水波纹部分</h5>
+		<section class="ripple">
+			<div class="ddt1 ddt1-animation"></div>
+			<div class="ddt2 ddt2-animation"></div>
+		</section>
+		<section class="ripple">
+			<div class="ddt1 ddt1-animation">
+				<div class="ddt2 ddt2-animation"></div>
+			</div>
+		</section>
+
+		<h5>内呼吸部分</h5>
+		<section class="inner-breath inner-breath-animation"></section>
+
+		<h5>扩散部分</h5>
+		<img class="spread spread-animation" src="./images/light.png" />
+
+		<div class="whole">
+			<div class="silk"></div>
+
+			<div class="content">
+				<img class="diamond" src="./images/diamond.png" />
+				<div class="star">
+					<img class="dot1" src="./images/star.png" />
+					<img class="dot2" src="./images/star.png" />
+					<img class="dot3" src="./images/star.png" />
+					<img class="dot4" src="./images/star.png" />
+					<img class="dot5" src="./images/star.png" />
+				</div>
+				<div class="ripple">
+					<div class="ddt1"></div>
+					<div class="ddt2"></div>
+				</div>
+				<div class="inner-breath"></div>
+				<img class="spread" src="./images/light.png" />
+			</div>
+		</div>
+
+		<script>
+			var silkDiv = document.querySelector('.whole .silk'),
+				diamondDiv = document.querySelector('.whole .diamond'),
+				starDiv = document.querySelector('.whole .star'),
+				rippleDiv1 = document.querySelector('.whole .ripple .ddt1'),
+				rippleDiv2 = document.querySelector('.whole .ripple .ddt2'),
+				innerBreathDiv = document.querySelector('.whole .inner-breath'),
+				spreadDiv = document.querySelector('.whole .spread');
+
+			function fn1() {
+				silkDiv.className = 'silk silk-animation';
+				diamondDiv.className = 'diamond diamond-animation';
+				starDiv.className = 'star init-star-animation';
+				rippleDiv1.className = 'ddt1 init-ddt1-animation';
+				rippleDiv2.className = 'ddt2 init-ddt2-animation';
+				innerBreathDiv.className = 'inner-breath init-inner-breath-animation';
+				spreadDiv.className = 'spread spread-animation';
+			}
+
+			fn1();
+
+			setTimeout(() => {
+				rippleDiv1.className = 'ddt1 ddt1-animation';
+				rippleDiv2.className = 'ddt2 ddt2-animation';
+			}, 200);
+
+			setTimeout(() => {
+				starDiv.className = 'star star-animation';
+				innerBreathDiv.className = 'inner-breath inner-breath-animation';
+			}, 300);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+.inner-breath {
+	width: 240px;
+	height: 240px;
+	border-radius: 100%;
+	background: rgba(255, 242, 66, 0.6);
+	filter: blur(6px);
+}
+
+.init-inner-breath-animation {
+	animation: initInnerBreath 0.3s;
+}
+
+.inner-breath-animation {
+	animation: innerBreath 2s linear infinite;
+}
+
+@keyframes initInnerBreath {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	100% {
+		opacity: 0.6;
+		transform: scale(0.9);
+	}
+}
+
+@keyframes innerBreath {
+	0% {
+		opacity: 0.6;
+		transform: scale(0.9);
+	}
+
+	50% {
+		opacity: 0.6;
+		transform: scale(0.85);
+	}
+
+	100% {
+		opacity: 0.6;
+		transform: scale(0.9);
+	}
+}
