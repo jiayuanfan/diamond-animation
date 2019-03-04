@@ -2,11 +2,26 @@
 	display: inline-block;
 	width: 124px;
 	height: 200px;
-	opacity: 0;
 }
 
 .diamond-animation {
 	animation: diamondFrame 0.4s forwards;
+}
+
+.hide-diamond-animation {
+	animation: hideDiamond 0.4s linear forwards;
+}
+
+@keyframes hideDiamond {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
 
 @keyframes diamondFrame {

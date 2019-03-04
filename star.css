@@ -42,29 +42,21 @@
 
 .star > .dot5 {
 	left: 205px;
-	top: 184px;
+	top: 188px;
 	width: 30px;
 	height: 30px;
 }
 
-.init-star-animation > .dot1 {
-	animation: initStarDot1 0.3s;
-}
-
-.init-star-animation > .dot2 {
-	animation: initStarDot2 0.3s;
-}
-
-.init-star-animation > .dot3 {
-	animation: initStarDot3 0.3s;
-}
-
-.init-star-animation > .dot4 {
-	animation: initStarDot4 0.3s;
-}
-
+.init-star-animation > .dot1,
+.init-star-animation > .dot2,
+.init-star-animation > .dot3,
+.init-star-animation > .dot4,
 .init-star-animation > .dot5 {
-	animation: initStarDot5 0.3s;
+	animation: initStarDot 0.3s;
+}
+
+.hide-star-animation {
+	animation: hideStarDot 0.75s forwards;
 }
 
 .star-animation > .dot1 {
@@ -87,7 +79,7 @@
 	animation: starDot5 1.5s linear backwards infinite;
 }
 
-@keyframes initStarDot1 {
+@keyframes initStarDot {
 	0% {
 		transform: scale(0);
 		opacity: 0;
@@ -99,51 +91,15 @@
 	}
 }
 
-@keyframes initStarDot2 {
+@keyframes hideStarDot {
 	0% {
-		transform: scale(0);
-		opacity: 0;
-	}
-
-	100% {
 		transform: scale(1);
 		opacity: 1;
 	}
-}
-
-@keyframes initStarDot3 {
-	0% {
-		transform: scale(0);
-		opacity: 0;
-	}
 
 	100% {
-		transform: scale(1);
-		opacity: 1;
-	}
-}
-
-@keyframes initStarDot4 {
-	0% {
 		transform: scale(0);
 		opacity: 0;
-	}
-
-	100% {
-		transform: scale(1);
-		opacity: 1;
-	}
-}
-
-@keyframes initStarDot5 {
-	0% {
-		transform: scale(0);
-		opacity: 0;
-	}
-
-	100% {
-		transform: scale(1);
-		opacity: 1;
 	}
 }
 

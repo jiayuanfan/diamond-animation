@@ -29,6 +29,8 @@
 			.whole {
 				width: 600px;
 				height: 600px;
+				border: 1px solid #fff;
+				/* overflow: hidden; */
 			}
 
 			.whole .content {
@@ -81,9 +83,24 @@
 				margin-left: -200px;
 				margin-top: -200px;
 			}
+
+			#ball {
+				width: 12px;
+				height: 12px;
+				background: #5ea345;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -200px;
+				margin-top: -200px;
+				/* transition: left 1s linear, top 1s ease-in; */
+			}
 		</style>
 	</head>
 	<body>
+		<div id="ball"></div>
+
 		<h5>丝带部分</h5>
 		<section class="silk silk-animation"></section>
 
@@ -138,6 +155,20 @@
 		</div>
 
 		<script>
+			var $ball = document.getElementById('ball');
+			// document.body.onclick = function(evt) {
+			$ball.style.top = '600px';
+			$ball.style.left = '0px';
+			$ball.style.marginLeft = '0px';
+			$ball.style.marginTop = '0px';
+			// $ball.style.transition = 'left 0s, top 0s';
+			setTimeout(() => {
+				$ball.style.top = '0px';
+				$ball.style.left = '600px';
+				$ball.style.transition = 'left 1s linear, top 1s cubic-bezier(0,.3,.3,.99)';
+			}, 20);
+			// };
+
 			var silkDiv = document.querySelector('.whole .silk'),
 				diamondDiv = document.querySelector('.whole .diamond'),
 				starDiv = document.querySelector('.whole .star'),
@@ -154,19 +185,50 @@
 				rippleDiv2.className = 'ddt2 init-ddt2-animation';
 				innerBreathDiv.className = 'inner-breath init-inner-breath-animation';
 				spreadDiv.className = 'spread spread-animation';
+
+				setTimeout(() => {
+					rippleDiv1.className = 'ddt1 ddt1-animation';
+					rippleDiv2.className = 'ddt2 ddt2-animation';
+				}, 200);
+
+				setTimeout(() => {
+					starDiv.className = 'star star-animation';
+					innerBreathDiv.className = 'inner-breath inner-breath-animation';
+				}, 300);
 			}
 
 			fn1();
 
-			setTimeout(() => {
-				rippleDiv1.className = 'ddt1 ddt1-animation';
-				rippleDiv2.className = 'ddt2 ddt2-animation';
-			}, 200);
+			function fn2() {
+				setTimeout(() => {
+					starDiv.className = 'star hide-star-animation';
+					rippleDiv1.className = 'ddt1 hide-ddt1-animation';
+					rippleDiv2.className = 'ddt2 hide-ddt2-animation';
+					innerBreathDiv.className = 'inner-breath hide-inner-breath-animation';
+					spreadDiv.className = 'spread hide-spread-animation';
+				}, 3000);
 
-			setTimeout(() => {
-				starDiv.className = 'star star-animation';
-				innerBreathDiv.className = 'inner-breath inner-breath-animation';
-			}, 300);
+				setTimeout(() => {
+					diamondDiv.style.top = '200px';
+					diamondDiv.style.left = '238px';
+					diamondDiv.style.marginLeft = '0px';
+					diamondDiv.style.marginTop = '0px';
+
+					setTimeout(() => {
+						diamondDiv.className = 'diamond hide-diamond-animation';
+						diamondDiv.style.top = '0px';
+						diamondDiv.style.left = '600px';
+						diamondDiv.style.width = '37.2px';
+						diamondDiv.style.height = '60px';
+						diamondDiv.style.transition =
+							'width 0.4s linear, height 0.4s linear, left 0.4s linear, top 0.4s cubic-bezier(0, 0.3, 0.3, 0.99)';
+					}, 20);
+				}, 3300);
+			}
+
+			fn2();
 		</script>
+
+		<script></script>
 	</body>
 </html>

@@ -31,12 +31,20 @@
 	animation: sploosh1 2s linear forwards infinite;
 }
 
+.ripple .hide-ddt1-animation {
+	animation: hideSploosh 0.75s forwards;
+}
+
 .ripple .init-ddt2-animation {
 	animation: initSploosh 0.2s;
 }
 
 .ripple .ddt2-animation {
 	animation: sploosh2 2s linear forwards infinite;
+}
+
+.ripple .hide-ddt2-animation {
+	animation: hideSploosh 0.75s forwards;
 }
 
 @keyframes initSploosh {
@@ -48,6 +56,18 @@
 	100% {
 		transform: scale(0.35);
 		opacity: 1;
+	}
+}
+
+@keyframes hideSploosh {
+	0% {
+		transform: scale(0.35);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(0);
+		opacity: 0;
 	}
 }
 

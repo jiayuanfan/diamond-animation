@@ -10,6 +10,10 @@
 	animation: initInnerBreath 0.3s;
 }
 
+.hide-inner-breath-animation {
+	animation: hideInnerBreath 0.75s forwards;
+}
+
 .inner-breath-animation {
 	animation: innerBreath 2s linear infinite;
 }
@@ -23,6 +27,18 @@
 	100% {
 		opacity: 0.6;
 		transform: scale(0.9);
+	}
+}
+
+@keyframes hideInnerBreath {
+	0% {
+		opacity: 0.6;
+		transform: scale(0.9);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0);
 	}
 }
 
