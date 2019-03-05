@@ -2,6 +2,7 @@
 	display: inline-block;
 	width: 124px;
 	height: 200px;
+	opacity: 0;
 }
 
 .diamond-animation {

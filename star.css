@@ -10,6 +10,7 @@
 .star > .dot4,
 .star > .dot5 {
 	position: absolute;
+	opacity: 0;
 }
 
 .star > .dot1 {

@@ -2,17 +2,18 @@
 	display: inline-block;
 	width: 400px;
 	height: 400px;
+	opacity: 0;
 }
 
 .spread-animation {
-	animation: spread 0.3s;
+	animation: initSpread 0.3s forwards;
 }
 
 .hide-spread-animation {
 	animation: hide-spread 0.75s forwards;
 }
 
-@keyframes spread {
+@keyframes initSpread {
 	0% {
 		opacity: 0;
 		transform: scale(0.1);
