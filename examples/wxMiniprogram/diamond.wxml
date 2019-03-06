@@ -1,0 +1,28 @@
+<view class="diamond-container" style="{{containerStyle}}">
+  <view class="header" style="width: {{width}}px; height: {{height/3}}px">
+    <image wx:if="{{comment === 1}}" class="{{silkClassName}}" src="./images/silk-excellent.png" />
+    <image wx:elif="{{comment === 2}}" class="{{silkClassName}}" src="./images/silk-awesome.png" />
+    <image wx:else class="{{silkClassName}}" src="./images/silk-good-job.png" />
+  </view>
+
+  <view class="content" style="width: {{width}}px; height: {{height*2/3}}px">
+    <image wx:if="{{comment === 1}}" class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond.png" />
+    <image wx:elif="{{comment === 2}}" class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond.png" />
+    <image wx:else class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond.png" />
+
+    <view class="{{starClassName}}">
+      <image class="dot1" src="./images/star.png" />
+      <image class="dot2" src="./images/star.png" />
+      <image class="dot3" src="./images/star.png" />
+      <image class="dot4" src="./images/star.png" />
+      <image class="dot5" src="./images/star.png" />
+    </view>
+    <view class="ripple">
+      <view class="{{rippleDdt1ClassName}}"></view>
+      <view class="{{rippleDdt2ClassName}}"></view>
+    </view>
+    <view class="{{innerBreathClassName}}"></view>
+    <image class="{{spreadClassName}}" src="./images/light.png" />
+  </view>
+  <view class="bg"></view>
+</view>
