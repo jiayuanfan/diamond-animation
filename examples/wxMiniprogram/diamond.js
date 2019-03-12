@@ -6,7 +6,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // 从黑步出现到钻石出现中间的过渡等待毫秒数
+    // 从黑布出现到钻石出现中间的过渡等待毫秒数
     waitMs: {
       type: Number,
       value: 1000,
@@ -16,7 +16,12 @@ Component({
       type: Number,
       value: 3000,
     },
-    // 钻石飞完黑布停留毫秒数
+    // 钻石落地时的等比大小
+    endDiamondSizeRatio: {
+      type: Number,
+      value: 0.1
+    },
+    // 钻石飞完后，黑布停留毫秒数
     endWaitMs: {
       type: Number,
       value: 0
@@ -60,7 +65,25 @@ Component({
     callbackEventName: {
       type: String,
       value: 'diamondcallback'
-    }
+    },
+    // 音频相关urls
+    // 刚出现时的音频
+    voiceUrlOnExcellentShow: {
+      type: String,
+      value: 'http://fdfs.xmcdn.com/group56/M00/52/2A/wKgLdlyF-OCQSrDZAAEeuaTAP4w242.m4a'
+    }, 
+    voiceUrlOnAwesomeShow: {
+      type: String,
+      value: 'http://fdfs.xmcdn.com/group56/M00/52/2A/wKgLdlyF-OCQSrDZAAEeuaTAP4w242.m4a'
+    }, 
+    voiceUrlOnGoodjobShow: {
+      type: String,
+      value: 'http://fdfs.xmcdn.com/group56/M00/52/2A/wKgLdlyF-OCQSrDZAAEeuaTAP4w242.m4a'
+    }, 
+    voiceUrlOnFly: {
+      type: String,
+      value: 'http://fdfs.xmcdn.com/group57/M00/52/1D/wKgLgVyF-SHT4ldPAAEGPXTI5Ew587.m4a'
+    }, 
   },
 
   /**
@@ -163,7 +186,7 @@ Component({
       setTimeout(() => {
         this.setData({
           diamondClassName: 'diamond hide-diamond-animation',
-          diamondStyle: `top: ${endpointY}px; left: ${endpointX}px; width: 18.6px; height: 30px; transition: width 0.4s linear, height 0.4s linear, left 0.4s linear, top 0.4s cubic-bezier(0, 0.3, 0.3, 0.99)`
+          diamondStyle: `top: ${endpointY}px; left: ${endpointX}px; width: ${62 * this.properties.endDiamondSizeRatio}px; height: ${100 * this.properties.endDiamondSizeRatio}px; transition: width 0.4s linear, height 0.4s linear, left 0.4s linear, top 0.4s cubic-bezier(0, 0.3, 0.3, 0.99)`
         });
       }, 300);
     },
@@ -180,15 +203,15 @@ Component({
     playCommentAudio() {
       switch (this.properties.comment) {
         case 1:
-          this.playAudio('');
+          this.playAudio(this.properties.voiceUrlOnExcellentShow);
           break;
         
         case 2:
-          this.playAudio('');
+          this.playAudio(this.properties.voiceUrlOnAwesomeShow);
           break;
 
         case 3:
-          this.playAudio('');
+          this.playAudio(this.properties.voiceUrlOnGoodjobShow);
           break;
 
         default:
@@ -198,7 +221,7 @@ Component({
 
     // 播放钻石飞出的轨迹音效
     playDiamondFlyAudio() {
-      this.playAudio('');
+      this.playAudio(this.properties.voiceUrlOnFly);
     },
 
     playAudio(src) {

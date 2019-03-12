@@ -6,9 +6,9 @@
   </view>
 
   <view class="content" style="width: {{width}}px; height: {{height*2/3}}px">
-    <image wx:if="{{comment === 1}}" class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond.png" />
-    <image wx:elif="{{comment === 2}}" class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond.png" />
-    <image wx:else class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond.png" />
+    <image wx:if="{{comment === 1}}" class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond_3.png" />
+    <image wx:elif="{{comment === 2}}" class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond_2.png" />
+    <image wx:else class="{{diamondClassName}}" style="{{diamondStyle}}" src="./images/diamond_1.png" />
 
     <view class="{{starClassName}}">
       <image class="dot1" src="./images/star.png" />
